@@ -1,0 +1,324 @@
+:root {
+  --bg: #0b1020;
+  --card: #121933;
+  --muted: #aab3c5;
+  --text: #e7ecf7;
+  --accent: #6ea8fe;
+  --border: #2a3357;
+  --ok: #14b86a;
+  --bad: #ef4444;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Helvetica Neue, Arial;
+  color: var(--text);
+  background: linear-gradient(180deg, #0b1020, #0b1328 60%);
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: #0d142a;
+  /* position: sticky; */
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.topbar .btn {
+  margin-top: 20px;
+}
+.logo {
+  font-size: 18px;
+  margin: 0;
+}
+.nav {
+  display: flex;
+  gap: 8px;
+}
+.link {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.link.active,
+.link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+.grow {
+  flex: 1;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.pad {
+  padding: 16px;
+}
+.row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.col {
+  flex: 1;
+  min-width: 220px;
+}
+.center {
+  text-align: center;
+}
+.mt16 {
+  margin-top: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 6px 0;
+}
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0e1834;
+  color: var(--text);
+}
+input::placeholder {
+  color: #99a0b5;
+}
+textarea {
+  resize: vertical;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #18264a;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+.btn.primary {
+  background: #21407a;
+  border-color: #37579a;
+}
+.btn.ok {
+  background: #0e3b2a;
+  border-color: #17664c;
+}
+.btn.ghost {
+  background: transparent;
+}
+
+.hint {
+  color: var(--muted);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+.course-card {
+  padding: 12px;
+}
+.course-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.course-title {
+  font-weight: 700;
+}
+.course-term {
+  color: var(--muted);
+}
+.course-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.course-stat {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px dashed var(--border);
+  margin-top: 8px;
+  padding-top: 8px;
+}
+.stat-label {
+  color: var(--muted);
+}
+.stat-value {
+  font-weight: 700;
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0f1730;
+  height: 50vh;
+}
+.table-wrap.fit table {
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  min-width: 250px;
+  width: 100%;
+}
+th,
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+th {
+  font-size: 12px;
+  color: #c9d2ea;
+  background: #0e1834;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.status {
+  display: inline-flex;
+  min-width: 40px;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #1e2b4e;
+  cursor: pointer;
+  user-select: none;
+}
+.status.present {
+  background: #0d3c2a;
+  color: #86f3c5;
+}
+.status.absent {
+  background: #3a1222;
+  color: #f7b2bb;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  padding: 10px 14px;
+  background: #15213f;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.toast.show {
+  opacity: 1;
+}
+.empty-card {
+  padding: 24px;
+  text-align: center;
+}
+.roster-toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.roster-controls {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+}
+.roster-hint {
+  margin-left: 8px;
+}
+.att-col {
+  width: 60px;
+}
+.quiz-col {
+  width: 80px;
+}
+.quiz-col input {
+  width: 50px;
+}
+
+/* --- Modal basics --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 12, 24, 0.55);
+  z-index: 999;
+}
+.modal .panel {
+  width: min(920px, 96vw);
+  max-height: 86vh;
+  overflow: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Sticky Name column --- */
+.id-col {
+  min-width: 95px;
+}
+.section-col {
+  min-width: 50px;
+}
+.name-col {
+  min-width: 140px;
+}
+
+/* make sticky for both header + cells; inline left is set in JSX */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #0f1730; /* same as table body background */
+  z-index: 2;
+  border-right: 1px solid var(--border);
+}
+th.sticky-col {
+  z-index: 3;
+} /* keep sticky header above sticky cells */
